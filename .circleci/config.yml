@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - sonarcloud/scan
-      - run: echo "hello world"
+      - run: echo "hello worldx"
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.0
 workflows:
