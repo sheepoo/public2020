@@ -5,4 +5,14 @@ jobs:
       - image: circleci/node:4.8.2 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
+      - sonarcloud/scan
       - run: echo "hello world"
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.0
+version: 2.1
+workflows:
+  main:
+    jobs:
+      - build:
+          context: sonarcloud
+          
