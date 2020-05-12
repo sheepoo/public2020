@@ -9,7 +9,6 @@ jobs:
       - run: echo "hello world"
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.0
-version: 2.1
 workflows:
   main:
     jobs:
