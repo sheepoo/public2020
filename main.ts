@@ -1,2 +1,2 @@
-const message: string = "world!! 5";
+const message: string = "world!! 6";
 console.log(`Hello ${message}`);
