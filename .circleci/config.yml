@@ -8,7 +8,7 @@ jobs:
       - sonarcloud/scan
       - run: echo "hello worldx"
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.0
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
   main:
     jobs:
