@@ -5,6 +5,7 @@ jobs:
       - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
+      - run: npm install typescript
       - sonarcloud/scan
       - run: echo "hello worldx"
 orbs:
