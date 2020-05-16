@@ -10,7 +10,11 @@ jobs:
       - run: echo "hello worldx"
       - run: jq --version
       - run:
-          command: STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020)
+          command: |
+            curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020
+            STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020)
+            echo  STATUS
+            echo  ${STATUS}
       - run: echo "Status of SonarQube task is ${STATUS}"
 
 
