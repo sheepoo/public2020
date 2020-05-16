@@ -8,8 +8,10 @@ jobs:
       - run: npm install typescript
       - sonarcloud/scan
       - run: echo "hello worldx"
-      STATUS=$(curl -u $SONAR_TOKEN https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020  | jq -r '.projectStatus.status')
-      - run: echo "Status of SonarQube task is ${STATUS}"
+      - run:
+          command: |
+          STATUS=$(curl -u $SONAR_TOKEN https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020  | jq -r '.projectStatus.status')
+          echo "Status of SonarQube task is ${STATUS}"
 
 
 orbs:
