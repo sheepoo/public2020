@@ -17,6 +17,7 @@ jobs:
                 echo "Quality gate is not OK - exiting with error"
                 # exit 1
             fi
+      -run: npm install
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
