@@ -20,6 +20,8 @@ jobs:
       - run: 
           command: npm install
           working_directory: ./helloworld-webpart
+      - run:
+          command: ls -l ./helloworld-webpart/node_modules
       - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
