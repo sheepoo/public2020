@@ -20,15 +20,12 @@ jobs:
       - run: 
           command: npm install
           working_directory: ./helloworld-webpart
+      - run: echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/bin:$PATH" >> $BASH_ENV
       - run: 
-          command: 
-            echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/bin:$PATH" >> $BASH_ENV
-            gulp bundle --ship
+          command: gulp bundle --ship
           working_directory: ./helloworld-webpart
       - run: 
-          command:
-            echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/bin:$PATH" >> $BASH_ENV
-            gulp package-solution --ship
+          command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
 
 orbs:
