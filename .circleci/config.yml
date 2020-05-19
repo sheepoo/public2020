@@ -20,18 +20,16 @@ jobs:
       - run: 
           command: npm install
           working_directory: ./helloworld-webpart
-      - run:
-          command: ls -l ./helloworld-webpart/node_modules
       - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
           environment: 
-            PATH: ./helloworld-webpart/node_modules:$PATH
+            PATH: ./helloworld-webpart/node_modules/.bin:$PATH
       - run: 
           command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
           environment: 
-            PATH: ./helloworld-webpart/node_modules:$PATH
+            PATH: ./helloworld-webpart/node_modules/.bin:$PATH
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
