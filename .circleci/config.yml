@@ -21,6 +21,10 @@ jobs:
           command: npm install
           working_directory: ./helloworld-webpart
       - run: 
+          command: echo $PATH
+          environment: 
+            PATH: /home/circleci/project/helloworld-webpart/node_modules/.bin:$PATH
+      - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
           environment: 
