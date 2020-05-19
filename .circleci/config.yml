@@ -29,29 +29,20 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+          working_directory: ./helloworld-webpart
 
       # run gulp
       - run: mkdir /tmp/artifacts
       
       - run: 
-        #  name : gulp bundle --ship
-        #  command: |
-        #    echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/.bin:$PATH" >> $BASH_ENV
-        #    source $BASH_ENV
-        #    gulp bundle --ship
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
       - run: 
-        #  name : gulp package-solution --ship
-        #  command: |
-        #    echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/.bin:$PATH" >> $BASH_ENV
-        #    source $BASH_ENV
-        #    gulp package-solution --ship
           command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
 
       - store_artifacts:
-          path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
+          path: /tmp/artifacts
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
