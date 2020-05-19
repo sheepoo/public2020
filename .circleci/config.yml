@@ -23,7 +23,7 @@ jobs:
       - run: 
           name : gulp bundle --ship
           command: |
-            echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/,bin:$PATH" >> $BASH_ENV
+            echo "export PATH=/home/circleci/project/helloworld-webpart/node_modules/.bin:$PATH" >> $BASH_ENV
             source $BASH_ENV
             gulp bundle --ship
           working_directory: ./helloworld-webpart
