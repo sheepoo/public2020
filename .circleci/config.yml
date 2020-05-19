@@ -17,6 +17,8 @@ jobs:
                 echo "Quality gate is not OK - exiting with error"
                 # exit 1
             fi
+      - run: # SPFx Webパーツのフォルダに移動してビルドを実行します
+          cd ./helloworld-webpart
       - run: pwd
       - run: npm install
 
