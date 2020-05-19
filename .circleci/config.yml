@@ -21,6 +21,14 @@ jobs:
           name: install dependent packages according to package.json
           command: npm install
           working_directory: ./helloworld-webpart
+      - run: 
+          name: release build
+          command: gulp bundle --ship
+          working_directory: ./helloworld-webpart
+      - run: 
+          name: release packaging
+          command: gulp package-solution --ship
+          working_directory: ./helloworld-webpart
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
