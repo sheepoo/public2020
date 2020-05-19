@@ -17,10 +17,10 @@ jobs:
                 echo "Quality gate is not OK - exiting with error"
                 # exit 1
             fi
-      - run: # SPFx Webパーツのフォルダに移動してビルドを実行します
-          cd ./helloworld-webpart
-      - run: pwd
-      - run: npm install
+      - run: 
+          name: install dependent packages according to package.json
+          command: npm install
+          working_directory: ./helloworld-webpart
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
