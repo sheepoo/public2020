@@ -45,6 +45,9 @@ jobs:
           path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
           
       # ここから Sharepointにデプロイ
+      # o365 コマンドツールのインストール
+      - run:
+          command: npm install -g @pnp/office365-cli
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
