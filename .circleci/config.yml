@@ -47,7 +47,7 @@ jobs:
       # ここから Sharepointにデプロイ
       # o365 コマンドツールのインストール
       - run:
-          command: npm install -g @pnp/office365-cli
+          command: npm install @pnp/office365-cli
           working_directory: ./helloworld-webpart
 
 orbs:
