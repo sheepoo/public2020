@@ -25,11 +25,11 @@ jobs:
       
       - run: sudo npm link gulp
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-          working_directory: ./helloworld-webpart
+      # - save_cache:
+      #    paths:
+      #      - node_modules
+      #    key: v1-dependencies-{{ checksum "package.json" }}
+      #    working_directory: ./helloworld-webpart
 
       # run gulp
       - run: mkdir /tmp/artifacts
@@ -42,7 +42,7 @@ jobs:
           working_directory: ./helloworld-webpart
 
       - store_artifacts:
-          path: /tmp/artifacts
+          path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
           
       # ここから Sharepointにデプロイ
 
