@@ -43,6 +43,8 @@ jobs:
 
       - store_artifacts:
           path: /tmp/artifacts
+          
+      # ここから Sharepointにデプロイ
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
