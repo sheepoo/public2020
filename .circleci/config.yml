@@ -51,14 +51,6 @@ jobs:
           working_directory: ./helloworld-webpart
       
       # ログイン・デプロイを実行
-      - run:
-          command: o365 login -t password -u $($USERNAME) -p $($PASSWORD)
-          working_directory: ./helloworld-webpart/node_modules/@pnp/office365-cli/node_modules/.bash
-
-      - run:
-          command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
-      - run:
-          command: o365 spo app deploy --name helloworld-webpart.sppkg
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
