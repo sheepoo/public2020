@@ -48,6 +48,7 @@ jobs:
       # o365 コマンドツールのインストール
       - run:
           command: npm install -g @pnp/office365-cli
+          working_directory: ./helloworld-webpart
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
