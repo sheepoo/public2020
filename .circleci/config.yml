@@ -53,7 +53,7 @@ jobs:
       # ログイン・デプロイを実行
       - run:
           command: o365 login -t password -u $($USERNAME) -p $($PASSWORD)
-          working_directory: ./helloworld-webpart/node_modules/@pnp/office365-cli
+          working_directory: ./helloworld-webpart/node_modules/@pnp/office365-cli/node_modules/.bash
 
       - run:
           command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
