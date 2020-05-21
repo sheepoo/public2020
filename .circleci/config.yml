@@ -53,9 +53,7 @@ jobs:
       - run: sudo npm link @pnp/office365-cli
       
       # ログイン・デプロイを実行
-      - run:
-          command: o365 login -t password -u $USERNAME -p $PASSWORD
-          working_directory: ./helloworld-webpart
+      - run: echo "o365 login -t password -u $USERNAME -p $PASSWORD"
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
