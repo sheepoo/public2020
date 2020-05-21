@@ -54,7 +54,7 @@ jobs:
       
       # ログイン・デプロイを実行
       - run:
-          command: o365 login -t password -u $(${USERNAME}) -p $(${PASSWORD})
+          command: o365 login -t password -u ${USERNAME} -p ${PASSWORD}
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
