@@ -55,6 +55,11 @@ jobs:
       # ログイン・デプロイを実行
       - run:
           command: o365 login -t password -u $USERNAME -p $PASSWORD
+      
+      - run:
+          command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
+      - run:
+          command: o365 spo app deploy --name helloworld-webpart.sppkg
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
