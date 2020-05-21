@@ -50,7 +50,7 @@ jobs:
           command: npm install @pnp/office365-cli
           working_directory: ./helloworld-webpart
       
-      -run: sudo npm link office365-cli
+      - run: sudo npm link office365-cli
       
       # ログイン・デプロイを実行
       - run:
