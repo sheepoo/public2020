@@ -53,7 +53,8 @@ jobs:
       - run: sudo npm link @pnp/office365-cli
       
       # ログイン・デプロイを実行
-      - run: echo "o365 login -t password -u $USERNAME -p $PASSWORD"
+      - run:
+          command: "o365 login -t password -u $USERNAME -p $PASSWORD"
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
