@@ -1,6 +1,6 @@
 ## helloworld-webpart
 
-This is where you include your WebPart documentation.
+This is where you include your WebPart documentation!
 
 ### Building the code
 
