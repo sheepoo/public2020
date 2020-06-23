@@ -51,7 +51,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart <IHelloWorl
         <div class="${ styles.container }">
           <div class="${ styles.row }">
             <div class="${ styles.column }">
-              <span class="${ styles.title }">ようこそSharePoint</span>
+              <span class="${ styles.title }">ようこそSharePoint！</span>
               <p class="${ styles.subTitle }">Customize SharePoint experiences using Web Parts.</p>
               <p class="${ styles.description }">${escape(this.properties.description)}</p>
               <p class="${ styles.description }">test=${escape(this.properties.test)}</p>
