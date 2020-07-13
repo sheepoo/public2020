@@ -1,66 +1,72 @@
 version: 2.1
+orbs:
+  win: circleci/windows@2.2.0
 jobs:
   build:
-    docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
-      - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
-    steps:
+    executor:
+      name: win/default
+      shell: powershell.exe
+  steps:
+      # コマンドは Windows 仮想マシン環境で実行されます
       - checkout
-      - run: npm install typescript
-      - sonarcloud/scan
-      #- run: echo "hello worldx"
-      #- run: jq --version
+      # 以前のビルドからキャッシュされた依存関係を復元
+      - restore_cache:
+          keys:
       - run:
-          command: |
-            STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
-            echo "Status of SonarQube task is ${STATUS} "
-            if [ "${STATUS}" != "OK" ]; then
-                echo "Quality gate is not OK - exiting with error"
-                exit 1
-            fi
+          name: "Install project dependencies"
+          command: dotnet.exe restore
+      - save_cache:
+          paths:
+            - C:\Users\circleci\.nuget\packages
+      - run: Write-Host 'Hello, Windows'
+      - run: npm install typescript
+      #- sonarcloud/scan
+      - run: curl --version
+      #- run:
+      #    command: |
+      #      STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
+      #      echo "Status of SonarQube task is ${STATUS} "
+      #      if [ "${STATUS}" != "OK" ]; then
+      #          echo "Quality gate is not OK - exiting with error"
+      #          exit 1
+      #      fi
       
       # Download and cache dependencies
-      - run: 
-          command: npm install
-          working_directory: ./helloworld-webpart
+      #- run: 
+      #    command: npm install
+      #    working_directory: .\helloworld-webpart
       
-      - run: sudo npm link gulp
-
-      # - save_cache:
-      #    paths:
-      #      - node_modules
-      #    key: v1-dependencies-{{ checksum "package.json" }}
-      #    working_directory: ./helloworld-webpart
+      #- run: sudo npm link gulp
 
       # run gulp
-      - run: mkdir /tmp/artifacts
+      #- run: mkdir /tmp/artifacts
       
-      - run: 
-          command: gulp bundle --ship
-          working_directory: ./helloworld-webpart
-      - run: 
-          command: gulp package-solution --ship
-          working_directory: ./helloworld-webpart
+      #- run: 
+      #    command: gulp bundle --ship
+      #    working_directory: .\helloworld-webpart
+      #- run: 
+      #    command: gulp package-solution --ship
+      #    working_directory: .\helloworld-webpart
 
-      - store_artifacts:
-          path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
+      #- store_artifacts:
+      #    path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
           
       # ここから Sharepointにデプロイ
       # o365 コマンドツールのインストール
-      - run:
-          command: npm install @pnp/office365-cli
-          working_directory: ./helloworld-webpart
+      #- run:
+      #    command: npm install @pnp/office365-cli
+      #    working_directory: ./helloworld-webpart
       
-      - run: sudo npm link @pnp/office365-cli
+      #- run: sudo npm link @pnp/office365-cli
       
       # ログイン・デプロイを実行
-      - run:
-          command: o365 login -t password -u $USERNAME -p $PASSWORD
+      #- run:
+      #    command: o365 login -t password -u $USERNAME -p $PASSWORD
       
-      - run:
-          command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
-      - run:
-          command: o365 spo app deploy --name helloworld-webpart.sppkg
-
+      #- run:
+      #    command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
+      # - run:
+      #    command: o365 spo app deploy --name helloworld-webpart.sppkg
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
@@ -70,5 +76,6 @@ workflows:
           context: sonarcloud
           filters:
             branches:
-              only: master
+              only: 
+                - test-ps
           
