@@ -12,11 +12,3 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-
-workflows:
-  main:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: test-ps
