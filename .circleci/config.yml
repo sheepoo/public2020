@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+    win: circleci/windows@2.2.0
 jobs:
   build:
     executor:
@@ -55,8 +57,6 @@ jobs:
       #    command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
       # - run:
       #    command: o365 spo app deploy --name helloworld-webpart.sppkg
-orbs:
-    win: circleci/windows@2.2.0
 workflows:
   main:
     jobs:
@@ -64,6 +64,5 @@ workflows:
           context: sonarcloud
           filters:
             branches:
-              only: 
-                - test-ps
+              only: test-ps
           
