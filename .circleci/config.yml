@@ -12,8 +12,10 @@ jobs:
     steps:
       - checkout
       - run:            
-         command: pwd
-         shell: powershell.exe
-      - run:
          command: dir
+      - run:
+         command: curl --version
          shell: cmd.exe
+      - run:
+        command: Install-Package Microsoft.SharePointOnline.CSOM -Version 16.1.20211.12000
+      
