@@ -1,23 +1,11 @@
 version: 2.1
-orbs:
-  win: circleci/windows@2.2.0
 jobs:
   build:
     executor:
       name: win/default
       shell: powershell.exe
-  steps:
-      # コマンドは Windows 仮想マシン環境で実行されます
+    steps:
       - checkout
-      # 以前のビルドからキャッシュされた依存関係を復元
-      - restore_cache:
-          keys:
-      - run:
-          name: "Install project dependencies"
-          command: dotnet.exe restore
-      - save_cache:
-          paths:
-            - C:\Users\circleci\.nuget\packages
       - run: Write-Host 'Hello, Windows'
       - run: npm install typescript
       #- sonarcloud/scan
@@ -68,7 +56,7 @@ jobs:
       # - run:
       #    command: o365 spo app deploy --name helloworld-webpart.sppkg
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+    win: circleci/windows@2.2.0
 workflows:
   main:
     jobs:
