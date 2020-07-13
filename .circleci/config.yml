@@ -1,68 +1,15 @@
-version: 2.1
+version: 2.1 # Use version 2.1 to enable orb usage.
+
 orbs:
-    win: circleci/windows@2.2.0
+  win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
+
 jobs:
-  build:
+  build: # name of your job
     executor:
-      name: win/default
-      shell: powershell.exe
+      name: win/default # executor type
+      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
+
     steps:
+      # Commands are run in a Windows virtual machine environment
       - checkout
       - run: Write-Host 'Hello, Windows'
-      - run: npm install typescript
-      #- sonarcloud/scan
-      - run: curl --version
-      #- run:
-      #    command: |
-      #      STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
-      #      echo "Status of SonarQube task is ${STATUS} "
-      #      if [ "${STATUS}" != "OK" ]; then
-      #          echo "Quality gate is not OK - exiting with error"
-      #          exit 1
-      #      fi
-      
-      # Download and cache dependencies
-      #- run: 
-      #    command: npm install
-      #    working_directory: .\helloworld-webpart
-      
-      #- run: sudo npm link gulp
-
-      # run gulp
-      #- run: mkdir /tmp/artifacts
-      
-      #- run: 
-      #    command: gulp bundle --ship
-      #    working_directory: .\helloworld-webpart
-      #- run: 
-      #    command: gulp package-solution --ship
-      #    working_directory: .\helloworld-webpart
-
-      #- store_artifacts:
-      #    path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
-          
-      # ここから Sharepointにデプロイ
-      # o365 コマンドツールのインストール
-      #- run:
-      #    command: npm install @pnp/office365-cli
-      #    working_directory: ./helloworld-webpart
-      
-      #- run: sudo npm link @pnp/office365-cli
-      
-      # ログイン・デプロイを実行
-      #- run:
-      #    command: o365 login -t password -u $USERNAME -p $PASSWORD
-      
-      #- run:
-      #    command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
-      # - run:
-      #    command: o365 spo app deploy --name helloworld-webpart.sppkg
-workflows:
-  main:
-    jobs:
-      - build:
-          context: sonarcloud
-          filters:
-            branches:
-              only: test-ps
-          
