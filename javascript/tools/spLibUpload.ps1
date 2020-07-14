@@ -57,5 +57,6 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
     }
     catch {
         Write-Host "Upload error : File '$SourceFilePath' " -BackgroundColor Red
+        exit 1
     }
 }
