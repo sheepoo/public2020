@@ -15,7 +15,8 @@ jobs:
       # install SharePoint and Project Client Object Model libraries
       # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
       - run: nuget install Microsoft.SharePointOnline.CSOM
-      - run: Install-Module -Name Microsoft.Online.SharePoint.PowerShell
+      - run: Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Force
+      - run: Get-Module -Name Microsoft.Online.SharePoint.PowerShell -ListAvailable | Select Name,Version
 
       - run: dir C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib
       # upload files to SharePoint Document Library
