@@ -18,10 +18,11 @@ Param(
     [parameter(mandatory=$true)][String]$path
 ) 
 
-# CSOMモジュールの読み込み
-[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client") > $null
-[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client.Runtime") > $null
-
+# CSOMライブラリの読み込み
+#[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client") > $null
+#[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client.Runtime") > $null
+Add-Type -Path "%CIRCLE_WORKING_DIRECTORY%\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\netstandard2.0\Microsoft.SharePoint.Client.dll"
+Add-Type -Path "%CIRCLE_WORKING_DIRECTORY%\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\netstandard2.0\Microsoft.SharePoint.Client.Runtime.dll"
 
 # ログイン処理
 $securepassword = ConvertTo-SecureString $password -AsPlainText -Force
