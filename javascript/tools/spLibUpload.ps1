@@ -21,10 +21,8 @@ Param(
 # CSOMライブラリの読み込み
 [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client") | Out-Null
 [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client.Runtime") | Out-Null
-#Add-Type -Path "C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\netstandard2.0\Microsoft.SharePoint.Client.dll"
-#Add-Type -Path "C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\netstandard2.0\Microsoft.SharePoint.Client.Runtime.dll"
-#Import-Module "C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\net45\Microsoft.SharePoint.Client.dll"
-#Import-Module "C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib\net45\Microsoft.SharePoint.Client.Runtime.dll"
+Add-Type -Path "C:\Program Files\WindowsPowerShell\Modules\SharePointOnline.CSOM\1.0.5\Microsoft.SharePoint.Client.dll"
+Add-Type -Path "C:\Program Files\WindowsPowerShell\Modules\SharePointOnline.CSOM\1.0.5\Microsoft.SharePoint.Client.Runtime.dll"
 
 # ログイン処理
 $securepassword = ConvertTo-SecureString $password -AsPlainText -Force
