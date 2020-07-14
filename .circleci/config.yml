@@ -12,9 +12,6 @@ jobs:
     steps:
       - checkout
       - run: dir
-      - run:
-         command: curl --version
-         shell: cmd.exe
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
