@@ -35,22 +35,27 @@ $ctx.Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCreden
 $filesCollectionInSourceDirectory=Get-ChildItem $path -File   
 
 ForEach ($oneFile in $filesCollectionInSourceDirectory) {
-      
-    $list = $ctx.Web.Lists.GetByTitle($library)
-    $ctx.Load($list)
-    $ctx.ExecuteQuery()     
-   
-    $SourceFilePath=$oneFile.FullName
-    $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
 
-    $fileOpenStream = New-Object IO.FileStream($SourceFilePath, [System.IO.FileMode]::Open)  
-    $fileCreationInfo = New-Object Microsoft.SharePoint.Client.FileCreationInformation  
-    $fileCreationInfo.Overwrite = $true  
-    $fileCreationInfo.ContentStream = $fileOpenStream  
-    $fileCreationInfo.URL = $oneFile
-    $uploadFileInfo = $list.RootFolder.Files.Add($FileCreationInfo)  
-    $ctx.Load($uploadFileInfo)  
-    $ctx.ExecuteQuery() 
-     
-    Write-host -f Green "File '$SourceFilePath' has been uploaded to '$targetFilePath' successfully!"
+    try {   
+            $list = $ctx.Web.Lists.GetByTitle($library)
+            $ctx.Load($list)
+            $ctx.ExecuteQuery()     
+        
+            $SourceFilePath=$oneFile.FullName
+            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
+
+            $fileOpenStream = New-Object IO.FileStream($SourceFilePath, [System.IO.FileMode]::Open)  
+            $fileCreationInfo = New-Object Microsoft.SharePoint.Client.FileCreationInformation  
+            $fileCreationInfo.Overwrite = $true  
+            $fileCreationInfo.ContentStream = $fileOpenStream  
+            $fileCreationInfo.URL = $oneFile
+            $uploadFileInfo = $list.RootFolder.Files.Add($FileCreationInfo)  
+            $ctx.Load($uploadFileInfo)  
+            $ctx.ExecuteQuery() 
+            
+            Write-host -f Green "File '$SourceFilePath' has been uploaded to '$targetFilePath' successfully!"
+    }
+    catch {
+        Write-Host "Upload error : File '$SourceFilePath' " -BackgroundColor Red
+    }
 }
