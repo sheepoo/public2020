@@ -16,7 +16,7 @@ jobs:
       # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
       - run: nuget install Microsoft.SharePointOnline.CSOM
 
-      - run: dir 
+      - run: dir C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib
       # upload files to SharePoint Document Library
       - run:
           command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username kura@spkuratest.onmicrosoft.com -password kkuurraa@20 -path C:\Users\circleci\project\javascript\files
