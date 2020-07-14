@@ -1,5 +1,5 @@
 function helloWorld() {
-    console.log("Hello World");
+    alert("Hello World");
 }
 
 helloWorld();

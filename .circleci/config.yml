@@ -16,4 +16,10 @@ jobs:
       # install SharePoint and Project Client Object Model libraries
       # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
       - run: nuget install Microsoft.SharePointOnline.CSOM
+
+      # upload files to SharePoint Document Library
+      - run:
+        - command: |
+            cd javascript/tools
+            .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library テスト用ライブラリ -username $USERNAME -password $PASSWORD -path ..\files                                                                                                               
       
