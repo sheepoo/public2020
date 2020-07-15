@@ -2,6 +2,7 @@ version: 2.1 # Use version 2.1 to enable orb usage.
 
 orbs:
   win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 
 jobs:
   build: # name of your job
@@ -19,8 +20,17 @@ jobs:
       - run: Install-Module -Name SharePointOnline.CSOM -Force
       - run: Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
       
-      #- run: dir C:\Users\circleci\project\Microsoft.SharePointOnline.CSOM.16.1.20211.12000\lib
       # upload files to SharePoint Document Library
       - run:
           command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username kura@spkuratest.onmicrosoft.com -password kkuurraa@20 -path C:\Users\circleci\project\javascript\files
           working_directory: .\javascript\tools
+
+workflows:
+  main:
+    jobs:
+      - build:
+          #context: sonarcloud
+          filters:
+            branches:
+              only: test-windows
+          
