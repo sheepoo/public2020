@@ -13,9 +13,19 @@ jobs:
     steps:
       - checkout
 
+      # SonarCloud
+      - run: npm install typescript
+      - sonarcloud/scan
+      - run:
+          command: |
+            STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
+            Write-Host "Status of SonarQube task is ${STATUS} "
+            if ("${STATUS}" -ne "OK" ){
+                Write-Host "Quality gate is not OK - exiting with error"
+                exit 1
+            }
+
       # install SharePoint and Project Client Object Model libraries
-      # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
-      #- run: nuget install Microsoft.SharePointOnline.CSOM
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
       - run: Install-Module -Name SharePointOnline.CSOM -Force
       - run: Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
