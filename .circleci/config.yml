@@ -32,7 +32,7 @@ jobs:
       
       # upload files to SharePoint Document Library
       - run:
-          command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username kura@spkuratest.onmicrosoft.com -password kkuurraa@20 -path C:\Users\circleci\project\javascript\files
+          command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path C:\Users\circleci\project\javascript\files
           working_directory: .\javascript\tools
 
 workflows:
