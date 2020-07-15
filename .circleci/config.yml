@@ -31,6 +31,7 @@ jobs:
       - run: Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
       
       # upload files to SharePoint Document Library
+      - run: Get-ChildItem env:
       - run: Write-Host $env:USERNAME
       - run:
           command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username ${USERNAME} -password ${PASSWORD} -path C:\Users\circleci\project\javascript\files
