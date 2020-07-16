@@ -27,7 +27,7 @@ jobs:
 
       # Download and cache dependencies
       - run: 
-          command: npm install
+          command: npm install -g npm@6.13.4
           working_directory: .\helloworld-webpart
       - run:
           command: node -v
@@ -35,16 +35,14 @@ jobs:
       - run: npm install gulp --global
       - run:
           command: gulp -version
-          shell: cmd.exe
+
       # run gulp   
       - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
-          shell: cmd.exe
       - run: 
           command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
-          shell: cmd.exe
       - store_artifacts:
           path: .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg
 
