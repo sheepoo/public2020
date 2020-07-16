@@ -30,7 +30,7 @@ jobs:
           command: npm install
           working_directory: .\helloworld-webpart
       #- run: npm install -g 
-      - run: Start-Process powershell.exe -Verb runas | sudo n 10.19.0
+      - run: Start-Process powershell.exe -Verb runas "sudo n 10.19.0"
       - run:
           command: node -v
           shell: cmd.exe
