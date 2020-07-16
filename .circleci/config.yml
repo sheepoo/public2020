@@ -5,6 +5,34 @@ jobs:
       - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
+
+      # Add the Mono repository to your system
+      - run:
+          command: |  
+            sudo apt install gnupg ca-certificates
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+            echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+            sudo apt update
+      # install Mono
+      - run: sudo apt install mono-devel
+      # test Mono
+      - run:
+          command: | 
+            echo 'class X { static void Main () { System.Console.Write("My first mono app worked!\n");} }' > example.cs
+            mcs example.cs
+            mono example.exe
+
+      # install SharePoint and Project Client Object Model libraries
+      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
+      - run: Install-Module -Name SharePointOnline.CSOM -Force
+      - run: Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
+      
+      # upload files to SharePoint Document Library
+      - run:
+          command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $env:USERNAME -password $env:PASSWORD -path C:\Users\circleci\project\javascript\files
+          working_directory: .\javascript\tools
+
+
       - run: npm install typescript
       - sonarcloud/scan
       #- run: echo "hello world"
