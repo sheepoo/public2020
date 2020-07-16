@@ -67,7 +67,7 @@ workflows:
   main:
     jobs:
       - build:
-          context: sonarcloud
+          context: SonarCloud
           filters:
             branches:
               only: test-linux
