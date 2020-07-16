@@ -19,7 +19,7 @@ jobs:
       - run:
           command: |
             sudo apt install mono-complete
-      -run: mono --version
+      - run: mono --version
       # test Mono
       - run:
           command: | 
