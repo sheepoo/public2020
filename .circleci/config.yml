@@ -29,15 +29,11 @@ jobs:
       - run: 
           command: npm install
           working_directory: .\helloworld-webpart
-      - run:
-          command: |
-            npm install -g n
-            n 10.19.0
-            npm version
-      - run: 
-          command: | 
-            npm install gulp --global
-            gulp -version
+      - run: npm install -g n
+      - run: Start-Process n -Verb runas 10.19.0
+      - run: npm version
+      - run: npm install gulp --global
+      - run: gulp -version
 
       # run gulp   
       - run: 
