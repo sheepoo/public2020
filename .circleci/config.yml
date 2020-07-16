@@ -30,7 +30,7 @@ jobs:
           command: npm install
           working_directory: .\helloworld-webpart
       
-      - run: sudo npm link gulp
+      #- run: sudo npm link gulp
 
       # run gulp   
       - run: 
@@ -49,7 +49,7 @@ jobs:
           command: npm install @pnp/office365-cli
           working_directory: .\helloworld-webpart
       
-      - run: sudo npm link @pnp/office365-cli
+      #- run: sudo npm link @pnp/office365-cli
       
       # ログイン・デプロイを実行
       - run:
