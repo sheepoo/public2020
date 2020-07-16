@@ -27,8 +27,10 @@ jobs:
 
       # Download and cache dependencies
       - run: 
-          command: npm install -g npm@6.13.4
+          command: npm install
           working_directory: .\helloworld-webpart
+      - run: npm install -g n
+      - run: sudo n 10.19.0
       - run:
           command: node -v
           shell: cmd.exe
