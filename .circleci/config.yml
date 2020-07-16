@@ -30,7 +30,7 @@ jobs:
           command: npm install
           working_directory: .\helloworld-webpart
       
-      #- run: sudo npm link gulp
+      - run: npm install gulp --save-dev
 
       # run gulp   
       - run: 
