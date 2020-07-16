@@ -32,7 +32,7 @@ jobs:
       - run:
           command: |
             npm install -g n
-            sudo n 10.19.0
+            n 10.19.0
             npm version
       - run: 
           command: | 
