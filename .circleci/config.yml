@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: npm install typescript
       - sonarcloud/scan
-      #- run: echo "hello worldx"
+      #- run: echo "hello world"
       #- run: jq --version
       - run:
           command: |
