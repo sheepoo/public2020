@@ -4,7 +4,7 @@
   "private": true,
   "main": "lib/index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": "10.x"
   },
   "scripts": {
     "build": "gulp bundle",
@@ -31,8 +31,4 @@
     "@types/mocha": "2.2.38",
     "ajv": "~5.2.2"
   }
-  "engines": {
-    "node": "<10.99.99",
-    "npm": ">=6.0.0"
-  },
 }
