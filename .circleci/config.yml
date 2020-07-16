@@ -31,7 +31,7 @@ jobs:
           working_directory: .\helloworld-webpart
       - run: npm version
 
-      - run: npm install gulp@3.9.1 --global
+      - run: npm install gulp --global
       - run: gulp -version
 
       # run gulp   
