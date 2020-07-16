@@ -17,14 +17,11 @@ jobs:
       # install Mono
       - run:
           command: |
-            sudo apt install mono-complete
+            sudo apt-get install aptitude
+            sudo aptitude install mono-devel
       - run: mono --version
       # test Mono
-      - run:
-          command: | 
-            echo 'class X { static void Main () { System.Console.Write("My first mono app worked!\n");} }' > example.cs
-            mcs example.cs
-            mono example.exe
+      - run: csharp -e 'new System.Net.WebClient ().DownloadString ("https://www.nuget.org")'
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
