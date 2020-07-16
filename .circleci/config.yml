@@ -31,6 +31,9 @@ jobs:
           working_directory: .\helloworld-webpart
       - run: npm version
 
+      - run: npm uninstall -g node
+      - run: npm install node@10.19.0
+
       - run: npm install gulp --global
       - run: gulp -version
 
