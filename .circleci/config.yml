@@ -29,17 +29,22 @@ jobs:
       - run: 
           command: npm install
           working_directory: .\helloworld-webpart
-      
+      - run:
+          command: node -v
+          shell: cmd.exe
       - run: npm install gulp --global
-
+      - run:
+          command: gulp -version
+          shell: cmd.exe
       # run gulp   
       - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
+          shell: cmd.exe
       - run: 
           command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
-
+          shell: cmd.exe
       - store_artifacts:
           path: .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg
 
