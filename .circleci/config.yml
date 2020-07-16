@@ -14,7 +14,7 @@ jobs:
       - checkout
 
       # SonarCloud
-      - run: npm install typescript
+      #- run: npm install typescript
       #- sonarcloud/scan
       #- run:
       #    command: |
@@ -24,6 +24,41 @@ jobs:
       #          Write-Host "Quality gate is not OK - exiting with error"
       #          exit 1
       #      }
+
+      # Download and cache dependencies
+      - run: 
+          command: npm install
+          working_directory: .\helloworld-webpart
+      
+      - run: sudo npm link gulp
+
+      # run gulp   
+      - run: 
+          command: gulp bundle --ship
+          working_directory: ./helloworld-webpart
+      - run: 
+          command: gulp package-solution --ship
+          working_directory: ./helloworld-webpart
+
+      - store_artifacts:
+          path: .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg
+
+      # ここから Sharepointにデプロイ
+      # o365 コマンドツールのインストール
+      - run:
+          command: npm install @pnp/office365-cli
+          working_directory: .\helloworld-webpart
+      
+      - run: sudo npm link @pnp/office365-cli
+      
+      # ログイン・デプロイを実行
+      - run:
+          command: o365 login -t password -u $env:USERNAME -p $env:PASSWORD
+    
+      - run:
+          command: o365 spo app add -p .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg --overwrite
+      - run:
+          command: o365 spo app deploy --name helloworld-webpart.sppkg         
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
