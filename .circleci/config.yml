@@ -7,7 +7,6 @@ jobs:
       - checkout
 
       # Add the Mono repository to your system
-      - run: mono --version
       - run:
           command: |
             sudo apt-get install apt-transport-https
