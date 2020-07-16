@@ -7,6 +7,7 @@ jobs:
       - checkout
 
       # Add the Mono repository to your system
+      - run: mono --version
       - run:
           command: |
             sudo apt-get install apt-transport-https
@@ -17,10 +18,8 @@ jobs:
       # install Mono
       - run:
           command: |
-            sudo apt-get autoclean
-            sudo apt-get clean all
-            sudo apt-get update
-            sudo apt install mono-devel
+            sudo apt install mono-complete
+      -run: mono --version
       # test Mono
       - run:
           command: | 
