@@ -15,7 +15,12 @@ jobs:
             echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
             sudo apt update
       # install Mono
-      - run: sudo apt install mono-devel
+      - run:
+          command: |
+            sudo apt-get autoclean
+            sudo apt-get clean all
+            sudo apt-get update
+            sudo apt install mono-devel
       # test Mono
       - run:
           command: | 
