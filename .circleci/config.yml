@@ -1,89 +1,73 @@
-version: 2.1 # Use version 2.1 to enable orb usage.
-
-orbs:
-  win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
-  #sonarcloud: sonarsource/sonarcloud@1.0.1
-
+version: 2.1
 jobs:
-  build: # name of your job
-    executor:
-      name: win/default # executor type
-      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
-
+  build:
+    docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
+      - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
-
-      # SonarCloud
-      #- run: npm install typescript
-      #- sonarcloud/scan
-      #- run:
-      #    command: |
-      #      STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
-      #      Write-Host "Status of SonarQube task is ${STATUS} "
-      #      if ("${STATUS}" -ne "OK" ){
-      #          Write-Host "Quality gate is not OK - exiting with error"
-      #          exit 1
-      #      }
-
+      - run: npm install typescript
+      - sonarcloud/scan
+      #- run: echo "hello worldx"
+      #- run: jq --version
+      - run:
+          command: |
+            STATUS=$(curl -u "${SONAR_TOKEN}:" https://sonarcloud.io/api/qualitygates/project_status?projectKey=kura2020_public2020 | jq -r '.projectStatus.status')
+            echo "Status of SonarQube task is ${STATUS} "
+            if [ "${STATUS}" != "OK" ]; then
+                echo "Quality gate is not OK - exiting with error"
+                exit 1
+            fi
+      
       # Download and cache dependencies
       - run: 
-          command: |
-            npm install node@10.19.0
-            node -v
-          working_directory: .\helloworld-webpart      
-      - run: 
           command: npm install
-          working_directory: .\helloworld-webpart
-      - run: npm version
+          working_directory: ./helloworld-webpart
+      
+      - run: sudo npm link gulp
 
+      # - save_cache:
+      #    paths:
+      #      - node_modules
+      #    key: v1-dependencies-{{ checksum "package.json" }}
+      #    working_directory: ./helloworld-webpart
 
-
-      - run: npm install gulp --global
-      - run: gulp -version
-
-      # run gulp   
+      # run gulp
+      - run: mkdir /tmp/artifacts
+      
       - run: 
           command: gulp bundle --ship
           working_directory: ./helloworld-webpart
       - run: 
           command: gulp package-solution --ship
           working_directory: ./helloworld-webpart
-      - store_artifacts:
-          path: .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg
 
+      - store_artifacts:
+          path: ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg
+          
       # ここから Sharepointにデプロイ
       # o365 コマンドツールのインストール
       - run:
           command: npm install @pnp/office365-cli
-          working_directory: .\helloworld-webpart
+          working_directory: ./helloworld-webpart
       
-      #- run: sudo npm link @pnp/office365-cli
+      - run: sudo npm link @pnp/office365-cli
       
       # ログイン・デプロイを実行
       - run:
-          command: o365 login -t password -u $env:USERNAME -p $env:PASSWORD
-    
-      - run:
-          command: o365 spo app add -p .\helloworld-webpart\sharepoint\solution\helloworld-webpart.sppkg --overwrite
-      - run:
-          command: o365 spo app deploy --name helloworld-webpart.sppkg         
-
-      # install SharePoint and Project Client Object Model libraries
-      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
-      - run: Install-Module -Name SharePointOnline.CSOM -Force
-      - run: Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
+          command: o365 login -t password -u $USERNAME -p $PASSWORD
       
-      # upload files to SharePoint Document Library
       - run:
-          command: .\spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $env:USERNAME -password $env:PASSWORD -path C:\Users\circleci\project\javascript\files
-          working_directory: .\javascript\tools
+          command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
+      - run:
+          command: o365 spo app deploy --name helloworld-webpart.sppkg
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
   main:
     jobs:
       - build:
-          #context: sonarcloud
+          context: sonarcloud
           filters:
             branches:
-              only: test-windows
-          
+              only: test-linux
