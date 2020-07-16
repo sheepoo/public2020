@@ -27,16 +27,16 @@ jobs:
 
       # Download and cache dependencies
       - run: 
+          command: |
+            npm install node@10.19.0
+            node -v
+          working_directory: .\helloworld-webpart      
+      - run: 
           command: npm install
           working_directory: .\helloworld-webpart
       - run: npm version
 
-      - run: 
-          command: |
-            npm uninstall node
-            npm install node@10.19.0
-            node -v
-          working_directory: .\helloworld-webpart
+
 
       - run: npm install gulp --global
       - run: gulp -version
