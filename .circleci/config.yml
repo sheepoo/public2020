@@ -5,10 +5,7 @@ jobs:
       - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
-      - run:
-          command: |
-            sudo apt-get install lsb-release
-            lsb-release -sc
+
       # Install PowerShell
       # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---ubuntu-1804
       - run:
@@ -18,7 +15,7 @@ jobs:
             wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
             sudo dpkg -i packages-microsoft-prod.deb
             sudo apt-get update
-            sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+            sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu bionic universe"
             sudo apt-get update
             sudo apt-get install -y powershell
             pwsh  
