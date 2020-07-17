@@ -6,22 +6,23 @@ jobs:
     steps:
       - checkout
 
+      - run: sudo apt install nuget
+      - run: nuget
       # Add the Mono repository to your system
-      - run:
-          command: |
-            sudo apt-get install apt-transport-https
-            sudo apt install gnupg ca-certificates
-            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-            echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-            sudo apt update
+      #- run:
+      #    command: |
+      #      sudo apt-get install apt-transport-https
+      #      sudo apt install gnupg ca-certificates
+      #      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+      #      echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+      #      sudo apt update
       # install Mono
-      - run:
-          command: |
-            sudo apt-get install aptitude
-            sudo aptitude install mono-devel
-      - run: mono --version
+      #- run:
+      #    command: |
+      #      sudo apt-get install mono-devel
+      #- run: mono --version
       # test Mono
-      - run: csharp -e 'new System.Net.WebClient ().DownloadString ("https://www.nuget.org")'
+      #- run: csharp -e 'new System.Net.WebClient ().DownloadString ("https://www.nuget.org")'
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
