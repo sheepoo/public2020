@@ -6,8 +6,29 @@ jobs:
     steps:
       - checkout
 
+      # Install PowerShell
+      - run:
+          command: |
+            wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+            sudo dpkg -i packages-microsoft-prod.deb
+            sudo apt-get update
+            sudo add-apt-repository universe
+            sudo apt-get install -y powershell
+            pwsh  
+
+      # Install .Net Core
+      - run:
+          command: |
+            wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+            sudo dpkg -i packages-microsoft-prod.deb
+            sudo apt-get update; \
+            sudo apt-get install -y apt-transport-https && \
+            sudo apt-get update && \
+            sudo apt-get install -y aspnetcore-runtime-3.1
+
+      # Install NuGet
       - run: sudo apt install nuget
-      - run: nuget help
+      #- run: NuGet help
       # Add the Mono repository to your system
       #- run:
       #    command: |
