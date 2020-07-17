@@ -5,13 +5,15 @@ jobs:
       - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
-
+      - run:
+          command: |
+            sudo apt-get install lsb-release
+            lsb-release -sc
       # Install PowerShell
       # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---ubuntu-1804
       - run:
           command: |
             sudo apt-get install apt-transport-https
-            sudo apt-get install lsb-release
             sudo apt-get install software-properties-common
             wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
             sudo dpkg -i packages-microsoft-prod.deb
