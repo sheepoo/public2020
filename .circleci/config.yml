@@ -17,15 +17,11 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
             sudo apt-get update
             sudo apt-get install -y powershell
-            pwsh
 
       # Install .Net Core
       # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian
       #- run:
       #    command: |
-
-
-
 
       # Install NuGet
       - run: sudo apt install nuget
@@ -51,7 +47,7 @@ jobs:
       
       # upload files to SharePoint Document Library
       - run:
-          command: ./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files
+          command: pwsh ./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files
           working_directory: ./javascript/tools
 
 
