@@ -7,25 +7,17 @@ jobs:
       - checkout
       - run: cat /etc/os-release
 
-      # Install PowerShell
-      # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---debian-9
-      - run:
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y curl gnupg apt-transport-https
-            curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-            sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
-            sudo apt-get update
-            sudo apt-get install -y powershell
-
       # Install .Net Core
       # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian
       #- run:
       #    command: |
 
       # Install NuGet
-      - run: sudo apt install nuget
-      #- run: NuGet help
+      - run: 
+          command: |
+            sudo apt-get update
+            sudo apt-get install nuget
+
       # Add the Mono repository to your system
       #- run:
       #    command: |
@@ -43,8 +35,27 @@ jobs:
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
-      - run: nuget install Microsoft.SharePointOnline.CSOM -OutputDirectory packages
-      
+      # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM
+      #- run: nuget install Microsoft.SharePointOnline.CSOM -OutputDirectory packages
+
+      # Install PowerShell
+      # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---debian-9
+      - run:
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y curl gnupg apt-transport-https
+            curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+            sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
+            sudo apt-get update
+            sudo apt-get install -y powershell
+ 
+      - run:
+          command: |
+            pwsh
+            ls 
+            Install-Module -Name SharePointOnline.CSOM -Force
+            Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
+
       # upload files to SharePoint Document Library
       - run:
           command: pwsh ./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files
