@@ -49,9 +49,9 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y powershell
  
-      - run: pwsh Get-Command -CommandType Cmdlet
-      - run: pwsh Install-Module -Name SharePointOnline.CSOM -Force
-      - run: pwsh Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
+      - run: pwsh -Command "Get-Command -CommandType Cmdlet"
+      - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
+      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
 
       # upload files to SharePoint Document Library
       - run:
