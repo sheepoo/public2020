@@ -49,7 +49,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y powershell
  
-      - run: pwsh | ls 
+      - run: pwsh Get-Command -CommandType Cmdlet
       - run: pwsh Install-Module -Name SharePointOnline.CSOM -Force
       - run: pwsh Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version
 
