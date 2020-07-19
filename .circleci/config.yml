@@ -33,11 +33,6 @@ jobs:
       # test Mono
       #- run: csharp -e 'new System.Net.WebClient ().DownloadString ("https://www.nuget.org")'
 
-      # install SharePoint and Project Client Object Model libraries
-      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
-      # https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM
-      #- run: nuget install Microsoft.SharePointOnline.CSOM -OutputDirectory packages
-
       # Install PowerShell
       # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---debian-9
       - run:
@@ -48,12 +43,14 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
             sudo apt-get update
             sudo apt-get install -y powershell
- 
+
+      # install SharePoint and Project Client Object Model libraries
+      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
       - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
-      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
-      
+      #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
+      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable   
+
       # upload files to SharePoint Document Library
-      - run: ls -l /usr/local/microsoft
       - run:
           command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files"
           working_directory: ./javascript/tools
