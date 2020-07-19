@@ -48,7 +48,7 @@ jobs:
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
       - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
       #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
-      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable   
+      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"  
 
       # upload files to SharePoint Document Library
       - run:
