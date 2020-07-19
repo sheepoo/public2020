@@ -49,11 +49,11 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y powershell
  
-      - run: pwsh -Command "$Env:PSModulePath"
       - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
       - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
-
+      
       # upload files to SharePoint Document Library
+      - run: ls -l /usr/local/microsoft
       - run:
           command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files"
           working_directory: ./javascript/tools
