@@ -35,12 +35,12 @@ $filesCollectionInSourceDirectory=Get-ChildItem $path -File
 ForEach ($oneFile in $filesCollectionInSourceDirectory) {
 
     try {   
+            $SourceFilePath=$oneFile.FullName
+            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
+            
             $list = $ctx.Web.Lists.GetByTitle($library)
             $ctx.Load($list)
             $ctx.ExecuteQuery()     
-        
-            $SourceFilePath=$oneFile.FullName
-            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
 
             $fileOpenStream = New-Object IO.FileStream($SourceFilePath, [System.IO.FileMode]::Open)  
             $fileCreationInfo = New-Object Microsoft.SharePoint.Client.FileCreationInformation  
