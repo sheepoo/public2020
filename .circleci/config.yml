@@ -47,13 +47,12 @@ jobs:
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
       - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
-      #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
-      - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
-      - run: ls -l  /home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/
+      #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
+      #- run: ls -l  /home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/
 
       # upload files to SharePoint Document Library
       - run:
-          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path ./javascript/files"
+          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
           working_directory: ./javascript/tools
 
 
