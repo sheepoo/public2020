@@ -49,7 +49,7 @@ jobs:
       - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
       #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable | Select Name,Version"
       - run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
-      - run: ls -l  /home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM
+      - run: ls -l  /home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5
 
       # upload files to SharePoint Document Library
       - run:
