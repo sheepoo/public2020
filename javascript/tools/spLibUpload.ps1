@@ -35,8 +35,10 @@ $filesCollectionInSourceDirectory=Get-ChildItem $path -File
 ForEach ($oneFile in $filesCollectionInSourceDirectory) {
 
     try {   
+            
             $SourceFilePath=$oneFile.FullName
             $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
+            Write-Host $oneFile
             Write-Host $SourceFilePath
             Write-Host $targetFilePath
             Write-Host $library
