@@ -17,6 +17,13 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y powershell
 
+      # install SharePoint and Project Client Object Model libraries
+      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/
+      - run: 
+          command: |
+            pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
+            pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
+
       # Install .Net Core Runtime
       # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian#debian-9-
       - run:
@@ -32,13 +39,6 @@ jobs:
             sudo apt-get update && \
             sudo apt-get install -y aspnetcore-runtime-3.1
             dotnet --list-runtimes
-
-      # install SharePoint and Project Client Object Model libraries
-      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
-      - run: 
-          command: |
-            pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
-            pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
 
       # upload files to SharePoint Document Library
       - run:
