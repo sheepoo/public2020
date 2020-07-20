@@ -16,8 +16,8 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
             sudo apt-get update
             sudo apt-get install -y powershell
-            
-      # Install .Net Core
+
+      # Install .Net Core Runtime
       # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian#debian-9-
       - run:
           command: |
@@ -31,19 +31,21 @@ jobs:
             sudo apt-get install -y apt-transport-https && \
             sudo apt-get update && \
             sudo apt-get install -y dotnet-runtime-3.1
+            dotnet --list-runtimes
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
-      - run: pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
-      #- run: pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
-      #- run: ls -l  /home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/
+      - run: 
+          command: |
+            pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
+            pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
 
       # upload files to SharePoint Document Library
       - run:
           command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "Test-Library" -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
           working_directory: ./javascript/tools
 
-
+      # SonarCloud    
       - run: npm install typescript
       - sonarcloud/scan
       #- run: echo "hello world"
