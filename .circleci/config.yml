@@ -7,34 +7,7 @@ jobs:
       - checkout
       - run: cat /etc/os-release
 
-      # Install .Net Core
-      # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian
-      #- run:
-      #    command: |
-
-      # Install NuGet
-      - run: 
-          command: |
-            sudo apt-get update
-            sudo apt-get install nuget
-
-      # Add the Mono repository to your system
-      #- run:
-      #    command: |
-      #      sudo apt install gnupg ca-certificates
-      #      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-      #      echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-      #      sudo apt update
-      # install Mono
-      #- run:
-      #    command: |
-      #      sudo apt-get install mono-devel
-      #- run: mono --version
-      # test Mono
-      #- run: csharp -e 'new System.Net.WebClient ().DownloadString ("https://www.nuget.org")'
-
       # Install PowerShell
-      # https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#installation-via-package-repository---debian-9
       - run:
           command: |
             sudo apt-get update
@@ -43,6 +16,21 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list'
             sudo apt-get update
             sudo apt-get install -y powershell
+            
+      # Install .Net Core
+      # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian#debian-9-
+      - run:
+          command: |
+            wget -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+            sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+            wget https://packages.microsoft.com/config/debian/9/prod.list
+            sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+            sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+            sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+            sudo apt-get update; \
+            sudo apt-get install -y apt-transport-https && \
+            sudo apt-get update && \
+            sudo apt-get install -y dotnet-runtime-3.1
 
       # install SharePoint and Project Client Object Model libraries
       # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/0.1.0
