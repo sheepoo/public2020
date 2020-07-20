@@ -37,7 +37,7 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
     try {   
             
             $SourceFilePath=$oneFile.FullName
-            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
+            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile.Name
             Write-Host $oneFile
             Write-Host $SourceFilePath
             Write-Host $targetFilePath
