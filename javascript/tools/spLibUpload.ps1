@@ -62,6 +62,9 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
             Write-host -f Green "File '$SourceFilePath' has been uploaded to '$targetFilePath' successfully!"
     }
     catch {
+        $ErrorMessage = $_.Exception_Message
+        #$.Exception($.Exception.Message)
+        $ErrorMessage
         Write-Host "Upload error : File '$SourceFilePath' " -BackgroundColor Red
         exit 1
     }
