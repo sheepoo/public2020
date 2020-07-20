@@ -52,7 +52,7 @@ jobs:
 
       # upload files to SharePoint Document Library
       - run:
-          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "テスト用ライブラリ" -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
+          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "Test-Library" -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
           working_directory: ./javascript/tools
 
 
