@@ -36,7 +36,13 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
             #リスト一覧を取得
             $ctx.Load($ctx.Web.lists)
             $ctx.ExecuteQuery()
+            foreach($objList in $ctx.Web.lists)
+            {
+                $listTitle = $objList.Title
+                Write-Host "リスト ${listTitle} をエクスポートします"
+            }
 
+            Write-Host "ここからライブラリ処理"
             $list = $ctx.Web.Lists.GetByTitle($library)
             $ctx.Load($list)
             $ctx.ExecuteQuery()     
