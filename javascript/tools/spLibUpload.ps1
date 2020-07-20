@@ -2,7 +2,7 @@
 概要：
 指定したSharePointサイトのライブラリに、指定したディレクトリ配下のファイルをアップロードする
 実行形式：
-./spLibUpload.ps1 -url [サイトのURL] -library [アップロード先ライブラリ名] -username [ユーザー名] -password [パスワード] -path [対象のファイルのあるディレクトリパス]
+./spLibUpload.ps1 -url [サイトのURL] -library [アップロード先ライブラリ名] -username [ユーザー名] -password [パスワード] -path [対象のファイルのあるディレクトリのフルパス]
 #>
 #
 # SharePoint Online Automation – O365 – Upload files to document library using PowerShell CSOM
@@ -19,8 +19,6 @@ Param(
 ) 
 
 # CSOMライブラリの読み込み
-#[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client") | Out-Null
-#[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint.Client.Runtime") | Out-Null
 Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.dll"
 Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Runtime.dll"
 
@@ -35,21 +33,18 @@ $filesCollectionInSourceDirectory=Get-ChildItem $path -File
 ForEach ($oneFile in $filesCollectionInSourceDirectory) {
 
     try {   
-            
-            $SourceFilePath=$oneFile.FullName
-            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile.Name
-            Write-Host $oneFile
-            Write-Host $SourceFilePath
-            Write-Host $targetFilePath
-            Write-Host $library
+            #リスト一覧を取得
+            $ctx.Load($ctx.Web.lists)
+            $ctx.ExecuteQuery()
 
             $list = $ctx.Web.Lists.GetByTitle($library)
-            Write-Host "1"
             $ctx.Load($list)
-            Write-Host "2"
             $ctx.ExecuteQuery()     
             Write-Host "ここからアップロード"
 
+            $SourceFilePath=$oneFile.FullName
+            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile.Name
+            
             $fileOpenStream = New-Object IO.FileStream($SourceFilePath, [System.IO.FileMode]::Open)  
             $fileCreationInfo = New-Object Microsoft.SharePoint.Client.FileCreationInformation  
             $fileCreationInfo.Overwrite = $true  
@@ -59,12 +54,11 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
             $ctx.Load($uploadFileInfo)  
             $ctx.ExecuteQuery() 
             
-            Write-host -f Green "File '$SourceFilePath' has been uploaded to '$targetFilePath' successfully!"
+            Write-host "File '$SourceFilePath' has been uploaded to '$targetFilePath' successfully!"
     }
     catch {
-        Write-Error ("エラー "+$_.Exception)
-        #$.Exception($.Exception.Message)
-        Write-Host "Upload error : File '$SourceFilePath' " -BackgroundColor Red
+        Write-Error ($_.Exception)
+        Write-Host "Upload error : File '$SourceFilePath'"
         exit 1
     }
 }
