@@ -32,12 +32,12 @@ $ctx.Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCreden
 # "For Each" loop will upload all of the files one by one onto the destination using the UploadFile method
 $filesCollectionInSourceDirectory=Get-ChildItem $path -File   
 
-ForEach ($oneFile in $filesCollectionInSourceDirectory.Name) {
+ForEach ($oneFile in $filesCollectionInSourceDirectory) {
 
     try {   
             
             $SourceFilePath=$oneFile.FullName
-            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile
+            $targetFilePath=$url+"/"+"$library"+"/"+$oneFile.Name
             Write-Host $oneFile
             Write-Host $SourceFilePath
             Write-Host $targetFilePath
