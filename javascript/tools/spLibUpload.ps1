@@ -44,9 +44,10 @@ ForEach ($oneFile in $filesCollectionInSourceDirectory) {
             Write-Host $library
 
             $list = $ctx.Web.Lists.GetByTitle($library)
+            Write-Host "1"
             $ctx.Load($list)
+            Write-Host "2"
             $ctx.ExecuteQuery()     
-
             Write-Host "ここからアップロード"
 
             $fileOpenStream = New-Object IO.FileStream($SourceFilePath, [System.IO.FileMode]::Open)  
