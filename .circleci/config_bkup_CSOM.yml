@@ -18,15 +18,31 @@ jobs:
             sudo apt-get install -y powershell
 
       # install SharePoint and Project Client Object Model libraries
-      # https://www.powershellgallery.com/packages/SharePointPnPPowerShellOnline
+      # https://www.powershellgallery.com/packages/SharePointOnline.CSOM/
       - run: 
           command: |
-            pwsh -Command "Install-Module -Name SharePointPnPPowerShellOnline -Force"
-            pwsh -Command "Get-Module -Name SharePointPnPPowerShellOnline -ListAvailable"
+            pwsh -Command "Install-Module -Name SharePointOnline.CSOM -Force"
+            pwsh -Command "Get-Module -Name SharePointOnline.CSOM -ListAvailable"
+
+      # Install .Net Core Runtime
+      # https://docs.microsoft.com/ja-jp/dotnet/core/install/linux-debian#debian-9-
+      - run:
+          command: |
+            wget -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+            sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+            wget https://packages.microsoft.com/config/debian/9/prod.list
+            sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+            sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+            sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+            sudo apt-get update; \
+            sudo apt-get install -y apt-transport-https && \
+            sudo apt-get update && \
+            sudo apt-get install -y aspnetcore-runtime-3.1
+            dotnet --list-runtimes
 
       # upload files to SharePoint Document Library
       - run:
-          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library TestLibrary -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
+          command: pwsh -Command "./spLibUpload.ps1 -url https://spkuratest.sharepoint.com -library "Test-Library" -username $USERNAME -password $PASSWORD -path /home/circleci/project/javascript/files"
           working_directory: ./javascript/tools
 
       # SonarCloud    
