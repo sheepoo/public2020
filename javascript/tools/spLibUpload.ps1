@@ -19,11 +19,8 @@ Param(
 ) 
 
 # CSOMライブラリの読み込み
-#Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.dll"
-#Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Runtime.dll"
-Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Portable.dll"
-Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Runtime.Portable.dll"
-Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Runtime.Windows.dll"
+Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.dll"
+Add-Type -Path "/home/circleci/.local/share/powershell/Modules/SharePointOnline.CSOM/1.0.5/Microsoft.SharePoint.Client.Runtime.dll"
 
 # ログイン処理
 $securepassword = ConvertTo-SecureString $password -AsPlainText -Force
