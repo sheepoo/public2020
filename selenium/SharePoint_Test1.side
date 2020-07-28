@@ -1,0 +1,74 @@
+{
+  "id": "262dfc99-aa5c-48eb-8533-5d00ddb82b6f",
+  "version": "2.0",
+  "name": "SharePoint_Test1",
+  "url": "https://spkuratest.sharepoint.com",
+  "tests": [{
+    "id": "ec597867-bdf7-4a79-a8bf-3a37697d04d0",
+    "name": "Test1",
+    "commands": [{
+      "id": "ab2067f3-2de8-4865-b97e-2753dcaa0f11",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59406240-31b1-4aed-8098-77a6252c6957",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x606",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5ed8a2e-65b5-4ed6-a1ee-69d7239ddd38",
+      "comment": "",
+      "command": "click",
+      "target": "css=.title_27205fc9",
+      "targets": [
+        ["css=.title_27205fc9", "css:finder"],
+        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24a0bda4-3036-42ab-9f2f-1a6ca330085b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.title_27205fc9",
+      "targets": [
+        ["css=.title_27205fc9", "css:finder"],
+        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
+      ],
+      "value": "ようこそSharePointへ！"
+    }, {
+      "id": "cfe52613-ff86-4e0c-8f90-139ec99c28f1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=テスト用ライブラリ",
+      "targets": [
+        ["linkText=テスト用ライブラリ", "linkText"],
+        ["css=.ms-HorizontalNavItem:nth-child(4) > .ms-HorizontalNavItem-link", "css:finder"],
+        ["xpath=//a[contains(text(),'テスト用ライブラリ')]", "xpath:link"],
+        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/DocLib/Forms/AllItems.aspx')]", "xpath:href"],
+        ["xpath=//span[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'テスト用ライブラリ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "08346fdf-aa67-46a7-88a0-57a8e7a1e7c1",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ec597867-bdf7-4a79-a8bf-3a37697d04d0"]
+  }],
+  "urls": ["https://spkuratest.sharepoint.com/"],
+  "plugins": []
+}

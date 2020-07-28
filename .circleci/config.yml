@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
-      - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
+      - image: circleci/node:10-browsers # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
       - run: npm install typescript
@@ -60,6 +60,10 @@ jobs:
           command: o365 spo app add -p ./helloworld-webpart/sharepoint/solution/helloworld-webpart.sppkg --overwrite
       - run:
           command: o365 spo app deploy --name helloworld-webpart.sppkg
+
+      # Selenuim-side runnerの実行
+      - run: npm install selenium-side-runner
+      - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
