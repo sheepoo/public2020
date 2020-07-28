@@ -67,7 +67,7 @@ jobs:
       # Selenuim-side runnerの実行
       - run: 
           command: |
-            npm install -g selenium-side-runner
+            sudo npm install -g selenium-side-runner
           working_directory: ./helloworld-webpart
       - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side
 
