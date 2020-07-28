@@ -21,31 +21,97 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "d5ed8a2e-65b5-4ed6-a1ee-69d7239ddd38",
+      "id": "3872789a-1816-495e-ad43-fa8ff429666a",
       "comment": "",
       "command": "click",
-      "target": "css=.title_27205fc9",
+      "target": "css=#otherTile .text-left",
       "targets": [
-        ["css=.title_27205fc9", "css:finder"],
-        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
-        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
-        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
+        ["css=#otherTile .text-left", "css:finder"],
+        ["xpath=//div[@id='otherTile']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div[2]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "24a0bda4-3036-42ab-9f2f-1a6ca330085b",
+      "id": "3195bcd1-6a57-4b0d-870f-aab4388a1f94",
       "comment": "",
-      "command": "verifyText",
-      "target": "css=.title_27205fc9",
+      "command": "type",
+      "target": "id=i0116",
       "targets": [
-        ["css=.title_27205fc9", "css:finder"],
-        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
-        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
-        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
+        ["id=i0116", "id"],
+        ["name=loginfmt", "name"],
+        ["css=#i0116", "css:finder"],
+        ["xpath=//input[@id='i0116']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[2]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
       ],
-      "value": "ようこそSharePointへ！"
+      "value": "kura@spkuratest.onmicrosoft.com"
     }, {
-      "id": "cfe52613-ff86-4e0c-8f90-139ec99c28f1",
+      "id": "9dc87cea-2264-48ae-9d2e-81632bf2ec53",
+      "comment": "",
+      "command": "click",
+      "target": "id=idSIButton9",
+      "targets": [
+        ["id=idSIButton9", "id"],
+        ["css=#idSIButton9", "css:finder"],
+        ["xpath=//input[@id='idSIButton9']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f5c3186-504d-4b33-a68b-a4671abb598b",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=idSIButton9",
+      "targets": [
+        ["id=idSIButton9", "id"],
+        ["css=#idSIButton9", "css:finder"],
+        ["xpath=//input[@id='idSIButton9']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7d06b40-0cee-49c5-a504-a66ab065bca3",
+      "comment": "",
+      "command": "type",
+      "target": "id=i0118",
+      "targets": [
+        ["id=i0118", "id"],
+        ["name=passwd", "name"],
+        ["css=#i0118", "css:finder"],
+        ["xpath=//input[@id='i0118']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "kkuurraa@20"
+    }, {
+      "id": "5b488574-1980-43e5-b37c-be7689eeba3e",
+      "comment": "",
+      "command": "click",
+      "target": "id=idSIButton9",
+      "targets": [
+        ["id=idSIButton9", "id"],
+        ["css=#idSIButton9", "css:finder"],
+        ["xpath=//input[@id='idSIButton9']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "69748b1f-abf7-483c-802e-507c7567a27a",
+      "comment": "",
+      "command": "click",
+      "target": "id=idBtn_Back",
+      "targets": [
+        ["id=idBtn_Back", "id"],
+        ["css=#idBtn_Back", "css:finder"],
+        ["xpath=//input[@id='idBtn_Back']", "xpath:attributes"],
+        ["xpath=//div[3]/div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7eac01c-8706-4d14-b65f-99515e6c916b",
       "comment": "",
       "command": "click",
       "target": "linkText=テスト用ライブラリ",
@@ -57,6 +123,61 @@
         ["xpath=//a[contains(@href, '/DocLib/Forms/AllItems.aspx')]", "xpath:href"],
         ["xpath=//span[4]/a", "xpath:position"],
         ["xpath=//a[contains(.,'テスト用ライブラリ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aed73cb3-88d3-4a0a-89d2-6aef50aa1a24",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ホーム",
+      "targets": [
+        ["linkText=ホーム", "linkText"],
+        ["css=.ms-HorizontalNavItem:nth-child(1) > .ms-HorizontalNavItem-link", "css:finder"],
+        ["xpath=//a[contains(text(),'ホーム')]", "xpath:link"],
+        ["xpath=//div[@id='appRoot']/div/div[3]/div/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/span/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div/div/div/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'ホーム')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd366523-059c-4a8f-8c26-09705c5828fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=#meInitialsButton > span",
+      "targets": [
+        ["css=#meInitialsButton > span", "css:finder"],
+        ["xpath=//div[@id='meInitialsButton']/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'KT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fe48c93-2c1a-428a-8d11-55f227d9dcdb",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#O365_MainLink_Me .\\_0299ff19e67bde1ea0ef4995f53311be\\.scss",
+      "targets": [
+        ["css=#O365_MainLink_Me .\\_0299ff19e67bde1ea0ef4995f53311be\\.scss", "css:finder"],
+        ["xpath=//button[@id='O365_MainLink_Me']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//button/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75869d36-fe35-466a-8bf8-e208a9c27f21",
+      "comment": "",
+      "command": "click",
+      "target": "id=meControlSignoutLink",
+      "targets": [
+        ["id=meControlSignoutLink", "id"],
+        ["linkText=サインアウト", "linkText"],
+        ["css=#meControlSignoutLink", "css:finder"],
+        ["xpath=//a[contains(text(),'サインアウト')]", "xpath:link"],
+        ["xpath=//a[@id='meControlSignoutLink']", "xpath:attributes"],
+        ["xpath=//div[@id='meControlLinks']/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://spkuratest.sharepoint.com/_layouts/15/SignOut.aspx')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'サインアウト')]", "xpath:innerText"]
       ],
       "value": ""
     }]
