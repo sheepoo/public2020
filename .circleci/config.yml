@@ -62,7 +62,10 @@ jobs:
           command: o365 spo app deploy --name helloworld-webpart.sppkg
 
       # Selenuim-side runnerの実行
-      - run: npm install selenium-side-runner
+      - run: 
+          command: |
+            npm install selenium-side-runner
+          working_directory: ./helloworld-webpart
       - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side
 
 orbs:
