@@ -21,17 +21,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "3872789a-1816-495e-ad43-fa8ff429666a",
-      "comment": "",
-      "command": "click",
-      "target": "css=#otherTile .text-left",
-      "targets": [
-        ["css=#otherTile .text-left", "css:finder"],
-        ["xpath=//div[@id='otherTile']/div/div[2]", "xpath:idRelative"],
-        ["xpath=//div[5]/div/div/div[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "3195bcd1-6a57-4b0d-870f-aab4388a1f94",
       "comment": "",
       "command": "type",
