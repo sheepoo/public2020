@@ -4,24 +4,24 @@
   "name": "SharePoint_Test1",
   "url": "https://spkuratest.sharepoint.com",
   "tests": [{
-    "id": "ec597867-bdf7-4a79-a8bf-3a37697d04d0",
+    "id": "6e9307b2-7695-4203-a28d-f0098e1fc40a",
     "name": "Test1",
     "commands": [{
-      "id": "ab2067f3-2de8-4865-b97e-2753dcaa0f11",
+      "id": "7669345a-bd25-4112-955c-ef1ffad9007a",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://login.microsoftonline.com/7e4a5f38-b000-4c23-83c9-20889b0a006c/oauth2/authorize?client_id=00000003-0000-0ff1-ce00-000000000000&response_mode=form_post&protectedtoken=true&response_type=code%20id_token&resource=00000003-0000-0ff1-ce00-000000000000&scope=openid&nonce=6BE506E43FE35715CC5044B69E7DFD2ACA6075B32E5EBB63-39020F317D82BC0048B96B434A7EBBAFB1B6DAA4F62A8CBA9EEAACDD0FC6F3FD&redirect_uri=https:%2F%2Fspkuratest.sharepoint.com%2F_forms%2Fdefault.aspx&claims=%7B%22id_token%22:%7B%22xms_cc%22:%7B%22values%22:%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a&client-request-id=b3606d9f-d0b8-0000-4b90-d03336604e9e&sso_reload=true",
       "targets": [],
       "value": ""
     }, {
-      "id": "59406240-31b1-4aed-8098-77a6252c6957",
+      "id": "dce0b891-b8e2-4ef4-a690-0ba8609dfc4f",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x606",
       "targets": [],
       "value": ""
     }, {
-      "id": "3195bcd1-6a57-4b0d-870f-aab4388a1f94",
+      "id": "4b0890fe-9e12-44cc-8c21-035b970ae34b",
       "comment": "",
       "command": "type",
       "target": "id=i0116",
@@ -35,7 +35,7 @@
       ],
       "value": "kura@spkuratest.onmicrosoft.com"
     }, {
-      "id": "9dc87cea-2264-48ae-9d2e-81632bf2ec53",
+      "id": "d8216be0-9a92-4ae2-9461-94deccf548dc",
       "comment": "",
       "command": "click",
       "target": "id=idSIButton9",
@@ -43,25 +43,12 @@
         ["id=idSIButton9", "id"],
         ["css=#idSIButton9", "css:finder"],
         ["xpath=//input[@id='idSIButton9']", "xpath:attributes"],
-        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/div/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "7f5c3186-504d-4b33-a68b-a4671abb598b",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "id=idSIButton9",
-      "targets": [
-        ["id=idSIButton9", "id"],
-        ["css=#idSIButton9", "css:finder"],
-        ["xpath=//input[@id='idSIButton9']", "xpath:attributes"],
-        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "a7d06b40-0cee-49c5-a504-a66ab065bca3",
+      "id": "a0383246-a256-4099-a733-8b5ad8575a58",
       "comment": "",
       "command": "type",
       "target": "id=i0118",
@@ -75,7 +62,7 @@
       ],
       "value": "kkuurraa@20"
     }, {
-      "id": "5b488574-1980-43e5-b37c-be7689eeba3e",
+      "id": "db2750f6-4cbc-453e-992f-4e4e60ff875f",
       "comment": "",
       "command": "click",
       "target": "id=idSIButton9",
@@ -88,7 +75,7 @@
       ],
       "value": ""
     }, {
-      "id": "69748b1f-abf7-483c-802e-507c7567a27a",
+      "id": "4ba54d89-cfdf-42c3-83c9-db8d8acfcedc",
       "comment": "",
       "command": "click",
       "target": "id=idBtn_Back",
@@ -100,73 +87,33 @@
       ],
       "value": ""
     }, {
-      "id": "b7eac01c-8706-4d14-b65f-99515e6c916b",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=テスト用ライブラリ",
-      "targets": [
-        ["linkText=テスト用ライブラリ", "linkText"],
-        ["css=.ms-HorizontalNavItem:nth-child(4) > .ms-HorizontalNavItem-link", "css:finder"],
-        ["xpath=//a[contains(text(),'テスト用ライブラリ')]", "xpath:link"],
-        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[4]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/DocLib/Forms/AllItems.aspx')]", "xpath:href"],
-        ["xpath=//span[4]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'テスト用ライブラリ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "aed73cb3-88d3-4a0a-89d2-6aef50aa1a24",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=ホーム",
-      "targets": [
-        ["linkText=ホーム", "linkText"],
-        ["css=.ms-HorizontalNavItem:nth-child(1) > .ms-HorizontalNavItem-link", "css:finder"],
-        ["xpath=//a[contains(text(),'ホーム')]", "xpath:link"],
-        ["xpath=//div[@id='appRoot']/div/div[3]/div/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/span/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
-        ["xpath=//div[2]/div[2]/div/div/div/span/a", "xpath:position"],
-        ["xpath=//a[contains(.,'ホーム')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "bd366523-059c-4a8f-8c26-09705c5828fc",
-      "comment": "",
-      "command": "click",
-      "target": "css=#meInitialsButton > span",
-      "targets": [
-        ["css=#meInitialsButton > span", "css:finder"],
-        ["xpath=//div[@id='meInitialsButton']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div/span", "xpath:position"],
-        ["xpath=//span[contains(.,'KT')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "1fe48c93-2c1a-428a-8d11-55f227d9dcdb",
+      "id": "f2731806-253c-4bb5-8cea-1ad1922bdee3",
       "comment": "",
       "command": "mouseOver",
-      "target": "css=#O365_MainLink_Me .\\_0299ff19e67bde1ea0ef4995f53311be\\.scss",
+      "target": "linkText=サイト コンテンツ",
       "targets": [
-        ["css=#O365_MainLink_Me .\\_0299ff19e67bde1ea0ef4995f53311be\\.scss", "css:finder"],
-        ["xpath=//button[@id='O365_MainLink_Me']/div/div[2]", "xpath:idRelative"],
-        ["xpath=//button/div/div[2]", "xpath:position"]
+        ["linkText=サイト コンテンツ", "linkText"],
+        ["css=.ms-HorizontalNavItem:nth-child(6) > .ms-HorizontalNavItem-link", "css:finder"],
+        ["xpath=//a[contains(text(),'サイト コンテンツ')]", "xpath:link"],
+        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/_layouts/15/viewlsts.aspx')]", "xpath:href"],
+        ["xpath=//span[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'サイト コンテンツ')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "75869d36-fe35-466a-8bf8-e208a9c27f21",
+      "id": "a23da8ed-a3b6-4eba-9966-8179a7f8954d",
       "comment": "",
       "command": "click",
-      "target": "id=meControlSignoutLink",
+      "target": "linkText=Test-Library",
       "targets": [
-        ["id=meControlSignoutLink", "id"],
-        ["linkText=サインアウト", "linkText"],
-        ["css=#meControlSignoutLink", "css:finder"],
-        ["xpath=//a[contains(text(),'サインアウト')]", "xpath:link"],
-        ["xpath=//a[@id='meControlSignoutLink']", "xpath:attributes"],
-        ["xpath=//div[@id='meControlLinks']/div[3]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'https://spkuratest.sharepoint.com/_layouts/15/SignOut.aspx')]", "xpath:href"],
-        ["xpath=//div[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'サインアウト')]", "xpath:innerText"]
+        ["linkText=Test-Library", "linkText"],
+        ["css=.ms-HorizontalNavItem:nth-child(5) > .ms-HorizontalNavItem-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Test-Library')]", "xpath:link"],
+        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/TestLibrary/Forms/AllItems.aspx')]", "xpath:href"],
+        ["xpath=//span[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Test-Library')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -177,7 +124,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["ec597867-bdf7-4a79-a8bf-3a37697d04d0"]
+    "tests": []
   }],
   "urls": ["https://spkuratest.sharepoint.com/"],
   "plugins": []
