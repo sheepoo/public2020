@@ -115,6 +115,25 @@
       ],
       "value": ""
     }, {
+      "id": "c1116b02-c82b-4a75-9914-3be298cb333b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.title_27205fc9",
+      "targets": [
+        ["css=.title_27205fc9", "css:finder"],
+        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
+      ],
+      "value": "ようこそSharePointへ！"
+    }, {
+      "id": "3608f97d-31cc-4091-accf-32e662802b66",
+      "comment": "",
+      "command": "pause",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "e828e656-3128-4fa3-a427-7ee342aefbaf",
       "comment": "",
       "command": "waitForElementVisible",
