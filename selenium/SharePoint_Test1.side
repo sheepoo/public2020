@@ -62,7 +62,7 @@
       ],
       "value": "kkuurraa@20"
     }, {
-      "id": "db2750f6-4cbc-453e-992f-4e4e60ff875f",
+      "id": "b22b7114-0fd4-4508-9ffa-3b35252a5f5a",
       "comment": "",
       "command": "click",
       "target": "id=idSIButton9",
@@ -75,7 +75,7 @@
       ],
       "value": ""
     }, {
-      "id": "4ba54d89-cfdf-42c3-83c9-db8d8acfcedc",
+      "id": "8a05e281-2f54-4ebe-9812-d3731f751607",
       "comment": "",
       "command": "click",
       "target": "id=idBtn_Back",
@@ -87,22 +87,7 @@
       ],
       "value": ""
     }, {
-      "id": "f2731806-253c-4bb5-8cea-1ad1922bdee3",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "linkText=サイト コンテンツ",
-      "targets": [
-        ["linkText=サイト コンテンツ", "linkText"],
-        ["css=.ms-HorizontalNavItem:nth-child(6) > .ms-HorizontalNavItem-link", "css:finder"],
-        ["xpath=//a[contains(text(),'サイト コンテンツ')]", "xpath:link"],
-        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[6]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/_layouts/15/viewlsts.aspx')]", "xpath:href"],
-        ["xpath=//span[6]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'サイト コンテンツ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "a23da8ed-a3b6-4eba-9966-8179a7f8954d",
+      "id": "49a904ed-7998-4376-abe0-158253bdc595",
       "comment": "",
       "command": "click",
       "target": "linkText=Test-Library",
@@ -115,6 +100,57 @@
         ["xpath=//span[5]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Test-Library')]", "xpath:innerText"]
       ],
+      "value": ""
+    }, {
+      "id": "33156c5e-8cad-4cba-b0f0-ed038545c5f6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=サイト コンテンツ",
+      "targets": [
+        ["linkText=サイト コンテンツ", "linkText"],
+        ["css=.ms-HorizontalNavItem:nth-child(6) > .ms-HorizontalNavItem-link", "css:finder"],
+        ["xpath=//a[contains(text(),'サイト コンテンツ')]", "xpath:link"],
+        ["xpath=//div[@id='appRoot']/div/div[3]/div/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/span[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/_layouts/15/viewlsts.aspx')]", "xpath:href"],
+        ["xpath=//span[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'サイト コンテンツ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dbd3940-1984-4fb8-8963-7eabac923d26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.\\_2KqWkae0FcyhdNhWQ-Cp-M > img",
+      "targets": [
+        ["css=.\\_2KqWkae0FcyhdNhWQ-Cp-M > img", "css:finder"],
+        ["xpath=//img[@alt='KT']", "xpath:img"],
+        ["xpath=//div[@id='O365_MainLink_MePhoto']/div/div/div/div[2]/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2eded9c4-2bbd-4ab1-8bdd-38f193eb492f",
+      "comment": "",
+      "command": "click",
+      "target": "id=meControlSignoutLink",
+      "targets": [
+        ["id=meControlSignoutLink", "id"],
+        ["linkText=サインアウト", "linkText"],
+        ["css=#meControlSignoutLink", "css:finder"],
+        ["xpath=//a[contains(text(),'サインアウト')]", "xpath:link"],
+        ["xpath=//a[@id='meControlSignoutLink']", "xpath:attributes"],
+        ["xpath=//div[@id='meControlLinks']/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/_layouts/15/SignOut.aspx')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'サインアウト')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3440b7f-f722-4465-9149-ecd633a6374e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
       "value": ""
     }]
   }],
