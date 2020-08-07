@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
-      - image: circleci/node:10-browsers # プライマリコンテナです。このなかでジョブコマンドが実行されます      
+      - image: circleci/node:10 # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
       - checkout
       - run: npm install typescript
@@ -64,6 +64,10 @@ jobs:
       - run:
           command: o365 spo app deploy --name helloworld-webpart.sppkg
 
+  test:
+    docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
+      - image: circleci/node:10-browsers # プライマリコンテナです。このなかでジョブコマンドが実行されます      
+    steps:
       # Selenuim-side runnerの実行
       - run: 
           command: |
@@ -71,7 +75,9 @@ jobs:
             sudo npm link selenium-side-runner
           working_directory: ./helloworld-webpart
       - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./selenium/result
-      - run: cat ./selenium/result/SharePoint_Test1.json
+      - store_test_results:
+          path: ./selenium/result/SharePoint_Test1.json
+
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
@@ -82,4 +88,7 @@ workflows:
           filters:
             branches:
               only: master
+      - test:
+          requires:
+            - build
           
