@@ -14,6 +14,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "584395c6-7252-4991-99a2-dcfc35fd6a6b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x606",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a3bb63e6-732d-45e0-8c5c-3286214aa9b3",
       "comment": "",
       "command": "pause",
@@ -103,6 +110,13 @@
       ],
       "value": ""
     }, {
+      "id": "e45bf7f1-1ab9-4392-be14-ee29c03b0c42",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7ff90bf5-d220-4fef-b031-f0e458e5a21b",
       "comment": "",
       "command": "waitForElementVisible",
@@ -122,6 +136,13 @@
       ],
       "value": ""
     }, {
+      "id": "59272c3e-55d5-4c56-a117-b2ae34e1c78f",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "c1116b02-c82b-4a75-9914-3be298cb333b",
       "comment": "",
       "command": "verifyText",
@@ -137,7 +158,7 @@
       "id": "3608f97d-31cc-4091-accf-32e662802b66",
       "comment": "",
       "command": "pause",
-      "target": "",
+      "target": "1000",
       "targets": [],
       "value": ""
     }, {
@@ -163,6 +184,13 @@
       ],
       "value": ""
     }, {
+      "id": "2b7a22b6-637b-4ee6-9986-4749c24b28b5",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "15faad76-268a-4d3a-9374-bf263b8eefe2",
       "comment": "",
       "command": "waitForElementVisible",
@@ -183,6 +211,13 @@
         ["xpath=//span[6]/a", "xpath:position"],
         ["xpath=//a[contains(.,'サイト コンテンツ')]", "xpath:innerText"]
       ],
+      "value": ""
+    }, {
+      "id": "c2286340-3c3f-400f-b471-d521a9c071be",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
       "value": ""
     }, {
       "id": "1dbd3940-1984-4fb8-8963-7eabac923d26",

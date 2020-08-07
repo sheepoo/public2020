@@ -70,8 +70,8 @@ jobs:
             npm install selenium-side-runner
             sudo npm link selenium-side-runner
           working_directory: ./helloworld-webpart
-      - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=result
-
+      - run: selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./selenium/result
+      - run: cat ./selenium/result/SharePoint_Test1.json
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
 workflows:
