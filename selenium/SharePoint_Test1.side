@@ -221,7 +221,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["6e9307b2-7695-4203-a28d-f0098e1fc40a"]
   }],
   "urls": ["https://spkuratest.sharepoint.com/"],
   "plugins": []
