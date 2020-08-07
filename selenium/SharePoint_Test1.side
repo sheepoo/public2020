@@ -21,6 +21,20 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "a0517597-919e-42fa-9d1c-0b9573e816e9",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "id=i0116",
+      "targets": [
+        ["id=i0116", "id"],
+        ["name=loginfmt", "name"],
+        ["css=#i0116", "css:finder"],
+        ["xpath=//input[@id='i0116']", "xpath:attributes"],
+        ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[2]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
       "id": "4b0890fe-9e12-44cc-8c21-035b970ae34b",
       "comment": "",
       "command": "type",
@@ -47,6 +61,13 @@
         ["xpath=//div[4]/div/div/div/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "8f009e94-ad6e-43fd-bb98-6cecee6c8a9e",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "id=i0118",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "a0383246-a256-4099-a733-8b5ad8575a58",
       "comment": "",
@@ -75,6 +96,13 @@
       ],
       "value": ""
     }, {
+      "id": "7ff90bf5-d220-4fef-b031-f0e458e5a21b",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "id=idBtn_Back",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "8a05e281-2f54-4ebe-9812-d3731f751607",
       "comment": "",
       "command": "click",
@@ -86,6 +114,13 @@
         ["xpath=//div[3]/div[2]/div/div/div/input", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "e828e656-3128-4fa3-a427-7ee342aefbaf",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "linkText=Test-Library",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "49a904ed-7998-4376-abe0-158253bdc595",
       "comment": "",
@@ -101,6 +136,13 @@
         ["xpath=//a[contains(.,'Test-Library')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "15faad76-268a-4d3a-9374-bf263b8eefe2",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "linkText=サイト コンテンツ",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "33156c5e-8cad-4cba-b0f0-ed038545c5f6",
       "comment": "",
