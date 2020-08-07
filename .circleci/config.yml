@@ -68,6 +68,8 @@ jobs:
     docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
       - image: circleci/node:10-browsers # プライマリコンテナです。このなかでジョブコマンドが実行されます      
     steps:
+      - checkout
+      
       # Selenuim-side runnerの実行
       - run: 
           command: |
