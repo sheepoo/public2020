@@ -14,6 +14,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "a3bb63e6-732d-45e0-8c5c-3286214aa9b3",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a0517597-919e-42fa-9d1c-0b9573e816e9",
       "comment": "",
       "command": "waitForElementEditable",
@@ -53,6 +60,13 @@
         ["xpath=//form[@id='i0281']/div/div/div/div[2]/div[2]/div/div/div/div[4]/div/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div[4]/div/div/div/div/input", "xpath:position"]
       ],
+      "value": ""
+    }, {
+      "id": "a1d0395a-d564-4a20-8a62-01faaac5bc75",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
       "value": ""
     }, {
       "id": "8f009e94-ad6e-43fd-bb98-6cecee6c8a9e",
