@@ -83,7 +83,7 @@ jobs:
             selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./test-reports
             cat ./test-reports/SharePoint_Test1.json
       - store_test_results:
-          path: ./test-reports/SharePoint_Test1.json
+          path: ./test-reports
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
