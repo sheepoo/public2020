@@ -17,7 +17,7 @@
       "id": "584395c6-7252-4991-99a2-dcfc35fd6a6b",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1280x606",
+      "target": "1920x1080",
       "targets": [],
       "value": ""
     }, {
@@ -134,49 +134,6 @@
         ["xpath=//input[@id='idBtn_Back']", "xpath:attributes"],
         ["xpath=//div[3]/div[2]/div/div/div/input", "xpath:position"]
       ],
-      "value": ""
-    }, {
-      "id": "48e6b7c1-1488-414e-b854-fa56e742ff7e",
-      "comment": "",
-      "command": "pause",
-      "target": "3000",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "1dbd3940-1984-4fb8-8963-7eabac923d26",
-      "comment": "",
-      "command": "click",
-      "target": "css=.\\_2KqWkae0FcyhdNhWQ-Cp-M > img",
-      "targets": [
-        ["css=.\\_2KqWkae0FcyhdNhWQ-Cp-M > img", "css:finder"],
-        ["xpath=//img[@alt='KT']", "xpath:img"],
-        ["xpath=//div[@id='O365_MainLink_MePhoto']/div/div/div/div[2]/img", "xpath:idRelative"],
-        ["xpath=//img", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "2eded9c4-2bbd-4ab1-8bdd-38f193eb492f",
-      "comment": "",
-      "command": "click",
-      "target": "id=meControlSignoutLink",
-      "targets": [
-        ["id=meControlSignoutLink", "id"],
-        ["linkText=サインアウト", "linkText"],
-        ["css=#meControlSignoutLink", "css:finder"],
-        ["xpath=//a[contains(text(),'サインアウト')]", "xpath:link"],
-        ["xpath=//a[@id='meControlSignoutLink']", "xpath:attributes"],
-        ["xpath=//div[@id='meControlLinks']/div[3]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/_layouts/15/SignOut.aspx')]", "xpath:href"],
-        ["xpath=//div[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'サインアウト')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "c3440b7f-f722-4465-9149-ecd633a6374e",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
       "value": ""
     }]
   }],

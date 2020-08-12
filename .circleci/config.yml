@@ -79,9 +79,8 @@ jobs:
           working_directory: ./helloworld-webpart
       - run: 
           command: |
-            set +e
             selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./test-reports --output-format=junit
-            cat ./test-reports/SharePoint_Test1.json
+            cat ./test-reports/SharePoint_Test1.xml
       - store_test_results:
           path: ./test-reports
 
