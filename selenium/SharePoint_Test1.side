@@ -21,10 +21,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "69aaee24-9098-4970-a57f-6d1262e049a5",
+      "comment": "",
+      "command": "echo",
+      "target": "Opened window successfully",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a3bb63e6-732d-45e0-8c5c-3286214aa9b3",
       "comment": "",
       "command": "pause",
-      "target": "1000",
+      "target": "5000",
       "targets": [],
       "value": ""
     }, {
@@ -69,10 +76,17 @@
       ],
       "value": ""
     }, {
+      "id": "bdf99e36-aa1a-48e7-a88e-797bfdb72304",
+      "comment": "",
+      "command": "echo",
+      "target": "Entered Id Successfully",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a1d0395a-d564-4a20-8a62-01faaac5bc75",
       "comment": "",
       "command": "pause",
-      "target": "1000",
+      "target": "5000",
       "targets": [],
       "value": ""
     }, {
@@ -110,10 +124,17 @@
       ],
       "value": ""
     }, {
+      "id": "4c023ad1-e38b-4eed-acc9-c489fa0b8ebb",
+      "comment": "",
+      "command": "echo",
+      "target": "Entered password Successfully",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "e45bf7f1-1ab9-4392-be14-ee29c03b0c42",
       "comment": "",
       "command": "pause",
-      "target": "1000",
+      "target": "5000",
       "targets": [],
       "value": ""
     }, {
