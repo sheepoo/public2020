@@ -136,87 +136,10 @@
       ],
       "value": ""
     }, {
-      "id": "59272c3e-55d5-4c56-a117-b2ae34e1c78f",
+      "id": "48e6b7c1-1488-414e-b854-fa56e742ff7e",
       "comment": "",
       "command": "pause",
-      "target": "1000",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "c1116b02-c82b-4a75-9914-3be298cb333b",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.title_27205fc9",
-      "targets": [
-        ["css=.title_27205fc9", "css:finder"],
-        ["xpath=//div[@id='spPageCanvasContent']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:idRelative"],
-        ["xpath=//div/div/div/div/div/div/div/div/div/div/div/div/div/div/span", "xpath:position"],
-        ["xpath=//span[contains(.,'ようこそSharePointへ！')]", "xpath:innerText"]
-      ],
-      "value": "ようこそSharePointへ！"
-    }, {
-      "id": "3608f97d-31cc-4091-accf-32e662802b66",
-      "comment": "",
-      "command": "pause",
-      "target": "1000",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e828e656-3128-4fa3-a427-7ee342aefbaf",
-      "comment": "",
-      "command": "waitForElementVisible",
-      "target": "linkText=Test-Library",
-      "targets": [],
-      "value": "30000"
-    }, {
-      "id": "49a904ed-7998-4376-abe0-158253bdc595",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Test-Library",
-      "targets": [
-        ["linkText=Test-Library", "linkText"],
-        ["css=.ms-HorizontalNavItem:nth-child(5) > .ms-HorizontalNavItem-link", "css:finder"],
-        ["xpath=//a[contains(text(),'Test-Library')]", "xpath:link"],
-        ["xpath=//div[@id='spSiteHeader']/div/div[2]/div/div[2]/div[2]/div/div/div/span[5]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/TestLibrary/Forms/AllItems.aspx')]", "xpath:href"],
-        ["xpath=//span[5]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Test-Library')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "2b7a22b6-637b-4ee6-9986-4749c24b28b5",
-      "comment": "",
-      "command": "pause",
-      "target": "5000",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "15faad76-268a-4d3a-9374-bf263b8eefe2",
-      "comment": "",
-      "command": "waitForElementVisible",
-      "target": "linkText=サイト コンテンツ",
-      "targets": [],
-      "value": "30000"
-    }, {
-      "id": "33156c5e-8cad-4cba-b0f0-ed038545c5f6",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=サイト コンテンツ",
-      "targets": [
-        ["linkText=サイト コンテンツ", "linkText"],
-        ["css=.ms-HorizontalNavItem:nth-child(6) > .ms-HorizontalNavItem-link", "css:finder"],
-        ["xpath=//a[contains(text(),'サイト コンテンツ')]", "xpath:link"],
-        ["xpath=//div[@id='appRoot']/div/div[3]/div/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/span[6]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/_layouts/15/viewlsts.aspx')]", "xpath:href"],
-        ["xpath=//span[6]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'サイト コンテンツ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "c2286340-3c3f-400f-b471-d521a9c071be",
-      "comment": "",
-      "command": "pause",
-      "target": "1000",
+      "target": "3000",
       "targets": [],
       "value": ""
     }, {
