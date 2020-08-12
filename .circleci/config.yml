@@ -80,7 +80,7 @@ jobs:
       - run: 
           command: |
             set +e
-            selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./test-reports
+            selenium-side-runner -c "browserName=chrome goog:chromeOptions.args=[disable-infobars,headless]"  ./selenium/SharePoint_Test1.side --output-directory=./test-reports --output-format=junit
             cat ./test-reports/SharePoint_Test1.json
       - store_test_results:
           path: ./test-reports
